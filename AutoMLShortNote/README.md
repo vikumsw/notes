@@ -57,7 +57,10 @@ In the context of healthcare , She furthermore adds
 >
 	
 
-My favorite part is how the article tags the definitions:  
+---
+
 **Hand-crafted machine learning models**: *ONE* answer to *ONE* question  
 **AutoML**: *ONE* answer to *MANY* questions
+
+---
 
