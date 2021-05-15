@@ -1,0 +1,217 @@
+
+
+
+- There is no ++ operator in python. It is there in javascript, c++, java
+
+- python set examples
+	visited = set ()
+	if pos in visited:
+	visited.add(node)
+	while visited:
+	
+- python queue examples
+	from collections import deque 
+	q = deque()
+	q.append(pos)
+	while q:
+	node = q.popleft()
+	'a' in q
+	
+- python enumerate: for i,ii in enumerate(grid)
+
+- Stack c++
+	stack<int> s;
+	s.push(5);
+	if (s.empty())
+	s.pop();
+	s.top()
+	s.size()
+
+- Stack Java
+	Stack<Integer> s = new Stack<>();
+	s.push(5);
+	if (s.empty() == true)
+	s.pop();
+	s.peek()
+	s.size()
+
+- Stack python
+	Using list
+		myStack = []
+		myStack.append('a')
+		myStack.pop()
+	Using deqeue
+		from collections import deque
+		myStack = deque()
+		myStack.append('a')
+		myStack.pop()
+
+- Queue using stacks : https://www.geeksforgeeks.org/queue-using-stacks/		
+		
+	
+	
+- Java String methods
+	s.charAt(index)
+	
+- Java Basics
+	boolean isJavaFun = true;
+	
+- Java
+	Resources:
+		https://fileadmin.cs.lth.se/cs/Education/EDA040/common/java21.pdf
+		https://www.codecademy.com/learn/learn-java/modules/learn-java-hello-world/cheatsheet
+		
+	
+	Java Virtual Machine (JVM) intepretes byte code. 
+	JVM (byte code interpreter)
+	In Java, every source file usually contains exactly one class.The file must have the same name as the class.
+	compile: javac TurtleMaze.java -> TurtleMaze.class (this is byte code) -> run: java TurtleMaze(This command loads the TurtleMaze class and executes its main method)
+	compile several dependent files : javac -depend TurtleMaze.java
+	
+	There are two types of variables
+		primitive: stores the value, can never be null, defaults: false or 0, 0.0
+		reference: stores the address
+	
+	Static Typing: Type of a variable is checked at compile time. This is known as static typing.
+	
+	Order of Operations: parentheses -> multiplication -> division -> modulo -> addition -> subtraction.
+	
+	casting
+		degrees = (int) (radians * 180 / 3.141592653);
+		In general, no cast is necessary as long as the conversion can be made without any loss of information.
+	
+	Access specifiers
+		The private declaration means that those attributes cannot be accessed outside of the class
+		The public keyword is used to declare that something can be accessed from other classes
+		The protected keyword specifies that something can be accessed from within the class and all its subclasses, but not from the outside.
+		default (no keyword): package-private, which means that all members are visible within the same package but aren't accessible from other packages:
+	
+	Object creation
+		Turtle t;
+		t = new Turtle(100, 100);
+		The first line is a declaration of a reference variable to a Turtle object.
+		The second line creates a new Turtle object and sets the t variable to refer to it.
+	
+	Java has garbage collection, so there is no need to destroy objects manually.
+	
+	The main method
+		public static void main(String[] args) {}
+		static keyword: It means that when the main method is called, it is not associated with an object, but with the class.
+	
+	Inheritance
+		class NinjaTurtle extends Turtle {}
+		constructors
+			public NinjaTurtle(int initX, int initY, String name) { 
+				super(initX, initY); // Call superclass’ constructor
+				// ... do some more initialization stuff...
+				}
+	
+	Virtual methods: In Java, all methods are virtual, so there is no need for any special syntax for virtual methods. A method in a class automatically overrides any method with the same name and parameters in any superclass.
+	
+	Abstract methods:  
+		 Such methods are really just declarations without any associated implementation, meaning that the method must be implemented in some subclass.
+		 public abstract void draw();
+		 A class with one or more abstract methods is itself called abstract, and must be declared as such by writing abstract class instead of class.
+		 It is not possible to create objects from abstract classes.
+	
+	Accessor Methods: return the value of a private variable
+	Mutator Methods: reset the value of a private variable
+	Static Methods: methods that can be called without creating an object of the class.
+	
+	Static Methods and Variables:  Static methods and variables are associated with the class as a whole, not objects of the class. Both are used by using the name of the class followed by the . operator.
+	Static Methods with Instance Variables: Static methods cannot access or change the values of instance variables.
+	Methods with Static Variables: Both non-static and static methods can access or change the values of static variables.
+	
+	this Keyword with Variables: Designate the difference between instance variables and local variables.Variables with this. reference an instance variable.
+	
+	super(): acts like the parent constructor inside the child class constructor.
+	
+	Interfaces
+		An interface can be used to specify that a class has to provide a certain set of methods.
+		interface MouseListener {
+			void processMouseClick(int x, int y);
+		}
+		class SomeClass extends SomeOtherClass implements MouseListener {}
+		
+	Exceptions
+		two broad categories of run-time errors:
+			Faults introduced by the programmer, such as division by zero or calling a method with a null reference.
+			Things out of the program’s control, such as a user entering a garbage on the keyboard when the program expects a positive integer. <- exceptions are for these
+			The traditional way -> validations and return success with the funtion return <- this is cumbersome
+		
+		Catching exceptions
+			public int getNatural() throws IOException { ... }
+			try {} catch (IOException e) {}
+			If the exception is not caught (even the main method passes it on), the execution is aborted with an error message.
+		
+		Throwing exceptions
+			throw new IOException(“bad natural number”);
+		
+		Declaring new exceptions
+			class OverheatedException extends Exception {}
+		
+		Some exceptions do not have to be caught: execution of the program is aborted with an error message
+	
+	Using packages
+		import java.awt.*;
+	
+	Arrays
+		int[] someInts = new int[30];
+		someInts[i]
+		someInts.length
+		String[] country = { "India", "Australia", "Japan", "USA", "UAE", "Canada", "Brazil"};
+			
+		int[][] arr = {{1,2,3},{4,5,6}};
+		String[][] stringValues = new String[][] {{"working", "with"}, {"2D", "arrays"}, {"is", "fun"}};
+
+	ArrayList (vector equvalant in c++)
+		import java.util.ArrayList;
+		ArrayList<String> studentList = new ArrayList<String>();
+		studentList.add("John");
+		studentList.remove(0);
+		studentList.remove("Lily");
+	
+	Writing to the terminal:
+		System.out.print(“Jag vill bo “);
+		System.out.println(“i en svamp“);
+		
+	Conditionals and Control Flow: same as c++
+		if ( ) {} else if () {} else {} 
+		Order of Evaluation: Expressions in parentheses -> NOT -> AND -> OR
+		
+	Loops
+		for (int num : numbers) { } //can use for arrays and arraylist
+		for(int outer = 0; outer < 3; outer++){}
+		
+	String Methods
+		str.length()	
+		s1.concat(s2);
+		s1.equals("Hello")
+		s2.equalsIgnoreCase("world")
+		str.indexOf("z") // -1 if not found
+		str.charAt(0)
+		str.toUpperCase();
+		str.toLowerCase();
+		
+	The Math Class
+		Math.abs(-7.0)
+		Math.pow(5, 3)
+		Math.sqrt(52)
+		
+	Polymorphism in Java
+		This allows for the benefits of simplified syntax and reduced cognitive overload for developers.
+		Child Classes in Arrays and ArrayLists: In Java, polymorphism allows us to put instances of different classes that share a parent class together in an array or ArrayList.
+			Animal cat1, dog1, pig1;
+			cat1 = new Cat();
+			dog1 = new Dog();
+			pig1 = new Pig();
+			Animal[] animals = {cat1, dog1, pig1};
+			
+	
+	@Override : we should include the @Override keyword above our child class method to indicate to the compiler that we want to override a method in the parent class.
+		
+		
+		
+	
+		
+	
