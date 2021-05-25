@@ -1,65 +1,29 @@
-
-
-
-- There is no ++ operator in python. It is there in javascript, c++, java
-
-- python set examples
-	visited = set ()
-	if pos in visited:
-	visited.add(node)
-	while visited:
+DSA
+	- Queue using stacks : https://www.geeksforgeeks.org/queue-using-stacks/
 	
-- python queue examples
-	from collections import deque 
-	q = deque()
-	q.append(pos)
-	while q:
-	node = q.popleft()
-	'a' in q
+	- How many equal length lexigraphycally smaller strings are there for string "abc" ? possible letters={a,b,c}
+		abc -> 012(ternery) -> 0*(3^2)+1*(3^1)+2*(3^0) -> 5 => there are 5 lexographically smaller strings are available
+		aaa(000),aab(001),aac(002),aba(010),abb(011)
 	
-- python enumerate: for i,ii in enumerate(grid)
+	- ceil(n/2)= floor((n+1)/2)
+	
+	- Binary Search template
+		lo = 2
+        hi = 10
+        while lo<hi:
+            mid = lo + (hi - lo) // 2
+            #Do Stuff 
+            if #need to focus below:
+                hi = mid
+            else:
+                lo = mid+1
+	
 
-- Stack c++
-	stack<int> s;
-	s.push(5);
-	if (s.empty())
-	s.pop();
-	s.top()
-	s.size()
-
-- Stack Java
-	Stack<Integer> s = new Stack<>();
-	s.push(5);
-	if (s.empty() == true)
-	s.pop();
-	s.peek()
-	s.size()
-
-- Stack python
-	Using list
-		myStack = []
-		myStack.append('a')
-		myStack.pop()
-	Using deqeue
-		from collections import deque
-		myStack = deque()
-		myStack.append('a')
-		myStack.pop()
-
-- Queue using stacks : https://www.geeksforgeeks.org/queue-using-stacks/		
-		
-	
-	
-- Java String methods
-	s.charAt(index)
-	
-- Java Basics
-	boolean isJavaFun = true;
-	
 - Java
 	Resources:
 		https://fileadmin.cs.lth.se/cs/Education/EDA040/common/java21.pdf
 		https://www.codecademy.com/learn/learn-java/modules/learn-java-hello-world/cheatsheet
+		https://github.com/in28minutes/java-cheat-sheet
 		
 	
 	Java Virtual Machine (JVM) intepretes byte code. 
@@ -68,9 +32,16 @@
 	compile: javac TurtleMaze.java -> TurtleMaze.class (this is byte code) -> run: java TurtleMaze(This command loads the TurtleMaze class and executes its main method)
 	compile several dependent files : javac -depend TurtleMaze.java
 	
+	The smallest building blocks in Java programs are methods : Methods in classes, and classes in packages
+	
 	There are two types of variables
 		primitive: stores the value, can never be null, defaults: false or 0, 0.0
-		reference: stores the address
+		reference: stores the address, we need to allocate memory using the new operator
+	
+	Long and float
+		long viewsCount = 3_123_456L; //default integer type in Java is int
+		float price = 10.99F; // default floating-point type in Java is double
+	
 	
 	Static Typing: Type of a variable is checked at compile time. This is known as static typing.
 	
@@ -155,6 +126,28 @@
 	Using packages
 		import java.awt.*;
 	
+	Differences between ArrayList and Vector: 
+		Vector is synchronized, which means only one thread at a time can access the code, while arrayList is not synchronized, which means multiple threads can work on arrayList at the same time. 
+		ArrayList increments 50% of the current array size, while vector increments 100% 
+		
+	The Ternary Operator
+		String className = (income > 100_000) ? “First” : “Economy”;
+	
+	Autoboxing and Unboxing
+		Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes
+		The Java compiler applies autoboxing when a primitive value is:
+			Passed as a parameter to a method that expects an object of the corresponding wrapper class.
+			Assigned to a variable of the corresponding wrapper class.
+		Converting an object of a wrapper type (Integer) to its corresponding primitive (int) value is called unboxing. The Java compiler applies unboxing when an object of a wrapper class is:
+			Passed as a parameter to a method that expects a value of the corresponding primitive type.
+			Assigned to a variable of the corresponding primitive type.
+	
+	Generics add stability to your code by making more of your bugs detectable at compile time
+		Generic programming is the ability to abstract away concrete types
+		C++ allows generic programming via templates and code generation.
+		java allows generic programming via generics and type erasure.
+			
+	
 	Arrays
 		int[] someInts = new int[30];
 		someInts[i]
@@ -162,14 +155,104 @@
 		String[] country = { "India", "Australia", "Japan", "USA", "UAE", "Canada", "Brazil"};
 			
 		int[][] arr = {{1,2,3},{4,5,6}};
+		int[2][3] matrix = new int[2][3];
 		String[][] stringValues = new String[][] {{"working", "with"}, {"2D", "arrays"}, {"is", "fun"}};
 
-	ArrayList (vector equvalant in c++)
+	The Array Class
+		Arrays.sort(numbers);
+		Arrays.toString(numbers);
+	
+	ArrayList (a dynamically resisable array)
 		import java.util.ArrayList;
-		ArrayList<String> studentList = new ArrayList<String>();
+		ArrayList<String> studentList = new ArrayList<>();
+		
 		studentList.add("John");
+		studentList.add(1, "For");
+		studentList.set(1, "For");
+		
 		studentList.remove(0);
-		studentList.remove("Lily");
+		studentList.remove("Lily");7
+		studentList.clear()
+		
+		studentList.size()
+		arr.isEmpty()
+		
+		studentList.get(i)
+		arr.contains("Lily"); //returns bool
+		arr.toArray();
+		arr.indexOf("Lily");
+		
+		import java.util.Collections;
+		Collections.sort(arr); // works for arrays as well
+		Collections.sort(arr, Collections.reverseOrder()); // works for arrays as well
+		Sorting an ArrayList according to user defined criteria : https://www.geeksforgeeks.org/collections-sort-java-examples/
+	
+	Array to List
+        List<Integer> list = Arrays.asList(num2);//converts the original array, cannot add,remove
+		ArrayList<Integer> colList = new ArrayList<>(Arrays.asList(ia))
+	
+	Java sorting
+		Sorting Arrays -> use Arrays.sort()
+			Sorting an array of primitives or array of objects in acsending order which implements either Comparable or Comparator method (ex: strings, wrapper types)
+				import java.util.Arrays;
+				int[] arr = {13, 7, 6, 45, 21, 9, 2, 100};
+				Arrays.sort(arr);
+				Arrays.sort(int[] a, int fromIndex, int toIndex);// subarray sort, toindex exclusive, to be sorted
+			
+			Sorting an array of objects in reverse order
+				import java.util.Collections;
+				Arrays.sort(array, Collections.reverseOrder());
+			
+			Sorting an array of primitives in reverse order -> no direct way. converted to a corresponding object array and use above method
+				
+			Sorting user defined object array
+				objetcts must implement either a Comparable or Comparator interface to define an order
+				example:
+					class Student{ int rollno;String name;}
+					class Sortbyroll implements Comparator<Student> {
+						public int compare(Student a, Student b){ return a.rollno - b.rollno;}
+						}
+					class Sortbyroll implements Comparator<Student> {
+						public int compare(Student a, Student b){ return a.rollno - b.rollno;}
+						}
+					Arrays.sort(array, new Sortbyroll());
+					Arrays.sort(array, new Comparator<Student>() {
+							@Override
+							public int compare(Student a, Student b){ return a.rollno - b.rollno;}
+						});	
+					Arrays.sort(array, (o1, o2)-> o1.getAge()-o2.getAge()) //using lambda
+		
+		Sorting ArrayLists
+			Sorting an ArrayList in ascending order
+				ArrayList<String> al = new ArrayList<String>();
+				Collections.sort(al);
+			
+			Sorting an ArrayList in descending order
+				Collections.sort(al, Collections.reverseOrder());
+		
+			Sorting an ArrayList according to user defined criteria.
+				ArrayList<Student> ar = new ArrayList<Student>();
+				//implement Comparator interface as above
+				Collections.sort(ar, new Sortbyroll());
+				Collections.sort(ar, (a,b)->a.age-b.age);
+				
+			Sorting arrays using Collections.sort()
+				convert array to array list -> sort
+				ArrayList<Integer> colList = new ArrayList<Integer>(Arrays.asList(ia))
+				Collections.sort(colList);
+>>>>>>>>	
+	Iterators
+		Iterator itr = array_name.iterator(); //or list.iterator()
+		itr.hasNext(); //returns bool
+		itr.next();
+		itr.remove(); //removes curr element
+		
+	Random number generation
+		Method 1
+			Random r = new Random();
+			r.nextInt(n); //return a random int from 0 to n
+		Method 2
+			Math.random(); //returns a random double between 0.0 and 1.0
 	
 	Writing to the terminal:
 		System.out.print(“Jag vill bo “);
@@ -184,19 +267,51 @@
 		for(int outer = 0; outer < 3; outer++){}
 		
 	String Methods
+		Strings are immutable, which means once we initialize them, their value cannot be changed.
+		All methods that modify a string (like toUpperCase) return a new string object.
+		The original string remains unaffected.
 		str.length()	
 		s1.concat(s2);
 		s1.equals("Hello")
 		s2.equalsIgnoreCase("world")
-		str.indexOf("z") // -1 if not found
+		str.indexOf("zs") // -1 if not found
+		str.indexOf("zs",6) // search after 6
 		str.charAt(0)
 		str.toUpperCase();
 		str.toLowerCase();
+		str.substring(incl,excl);
+		str.startsWith("hello");
+		str.endsWith("hello");
+		str.replace("aa","bb");
+		str.split(" "); //returns a string array
+		s1.matches(".*he") // matches regular expression
+		s1.trim()
+		s1.contains("asdfas")
+		s1.isEmpty()
+		s1.toCharArray()
 		
+	String to number
+		Byte.parseByte(“1”)
+		Short.parseShort(“1”)
+		Integer.parseInt(“1”)
+		Long.parseLong(“1”)
+		Float.parseFloat(“1.1”)
+		Double.parseDouble(“1.1”)
+	
+	Number to String
+		Integer.toString(123)
+		i.toString(); // use with objects
+		String.valueOf(2.4) //use with primitives, can use for char[]
+		String.valueOf(char[] data, int offset, int length) //convert a subarray of a character array to string
+	
 	The Math Class
 		Math.abs(-7.0)
 		Math.pow(5, 3)
 		Math.sqrt(52)
+		Math.random() // random number in [0,1)
+		Math.round(4.5)
+		Math.max(2,4.5)
+		Math.min(2.4.5)
 		
 	Polymorphism in Java
 		This allows for the benefits of simplified syntax and reduced cognitive overload for developers.
@@ -210,8 +325,260 @@
 	
 	@Override : we should include the @Override keyword above our child class method to indicate to the compiler that we want to override a method in the parent class.
 		
+	Reading Input
+		Scanner scanner = new Scanner(system.in);
+		double number = scanner.nextDouble();
+		byte number = scanner.nextByte();
+		String name = scanner.next();
+		String line = scanner.nextLine();	
+	
+	Stack
+		Stack<Integer> s = new Stack<>();
+		s.push();
+		s.peek();
+		s.pop();
+		s.empty(); //returns bool
+		s.size();
+	
+	LinkedList as Deque and Queue
+		import java.util.LinkedList;
+		import java.util.Deque;
+		import java.util.Queue;
 		
+		Queue<String> languages = new LinkedList<>();
+		languages.add("Python");
+		languages.peek();// access the first element
+		languages.poll();// access and remove the first element
+		languages.contains()
+		
+		Deque<String> animals = new LinkedList<>();
+		addFirst()
+		addLast()
+		getFirst()
+		getLast()
+		removeFirst()
+		removeLast()
+	
+	HashMap
+		HashMap<String, Integer> h = new HashMap<>();
+		h.put(key,value);
+		h.get(key) //returns v mapped to k
+		h.getOrDefault(k,def_value)
+		h.remove(key) //returns v and removes it.
+		h.size();
+		h.containsKey(key);
+		h.containsValue(value);
+		h.isEmpty()
+		
+		Looping through a HashMap:
+			for(String key: h.keySet()){}
+			for(Integer val: h.values()){}
+			for(Map.Entry<String, Integer> element : h.entrySet()){
+				element.getKey();
+				element.getValue();
+			}
+			
+
+	
+	Set in java
+		import java.util.HashSet;
+		HashSet<Integer> numbers1 = new HashSet<>();
+		numbers1.add(2);
+		numbers1.remove(5); // returns bool
+		numbers1.contains()
+		numbers1.isEmpty()
+		numbers1.size()
+		
+		Traversal:
+			for-each loop
+				for (String i : h) 
+					System.out.println(i);      
+			iterator
+				Iterator<String> itr = numbers1.iterator();
+				while(itr.hasNext()){System.out.println(itr.next())}
+			forEach method
+				numbers1.forEach(i -> System.out.println(i));
+				
+	Other Useful Methods:
+		Integer.MAX_VALUE
+		Integer.MIN_VALUE
+		Character.isDigit(c); //returns bool
+		Character.isAlphabetic(c);
+		Integer.toBinaryString(num); //returns binary representation of num, input = 10 returns “1010”
+		Arrays.asList(arr); //converts array to list	
+	
+	
+				
+
+
+	
+	DSA tricks
+		if((counter & (1 << j)) > 0) : j-th bit of counter is 1
+		1<<n : 2 to the power of n 
+
+Python
+	multiple declarations
+		visited, mx = set([0]), 0
+
+	print to terminal
+		print("Some Text")
+		print("Some Text", end =" ")
+	
+	math methods
+		math.ceil()
+		math.floor()
+		math.pow(x,y)
+		math.sqrt()
 		
 	
+	zip
+		zip(a, b) #returns a iterator of tuples
+		zip(iterator1, iterator2, iterator3 ...)
+		list(zip(a, b))
+	
+	There is no ++ operator in python. It is there in javascript, c++, java
+	
+	division
+		floor division -> //
+			5//2 = 2, -5//2 = -3
+		true division -> /
+			5/2 = 2.5
+			
+	pow(x,y)
+	pow(x,y,z) : z is optional mod
+	
+	String methods
+	
+	join(): create strings from iterable objects
+		separator.join(iterable) // "-".join(map(str,[1,2,3])) -> "1-2-3"
+	
+	List
+		Creation
+			mylist = ['1','2','3']
+			mylist = []
+			mylist = list()
+			mylist = list(('1','2','3'))
 		
+		Access and change
+			mylist[0] //first
+			mylist[-1] // last
+			mylist[-2] // second last
+			mylist[1:5] // sub list
+			mylist[:5]
+			mylist[2:]
+		
+		Check if Item Exists
+			if '1' in mylist:
+			
+		len(mylist)
+		
+		Insert
+			mylist.insert(2,"hello")
+			mylist.append("orange")
+			mylist.extend(mylist2)//you can use any iterable
+			list3 = list1 + list2
+		
+		Remove
+			mylist.remove("banana")
+			mylist.pop(1)
+			mylist.pop()
+			del mylist[3]
+		
+		mylist.clear()
+		
+		Loop
+			for x in mylist:
+			for i in range(len(mylist)):
+				mylist[i]
+		
+		List Comprehension
+			newlist = [x for x in fruits if "a" in x]
+		
+		sort
+			mylist.sort() // ascending
+			mylist.sort(reverse = True) //descending
+			
+			custom, with single arg compare funtion (https://www.programiz.com/python-programming/methods/list/sort)
+				mylist.sort(key=lambda x: x.get('salary'), reverse=True)//user defined
+				mylist.sort(key=lambda item: (100-item[1], item[2])) // multiple sort criterias
+				
+			custom, with two args to compare funtion (https://www.geeksforgeeks.org/functools-module-in-python/)
+				from functools import cmp_to_key
+				def cmp_fun(a,b){...}
+				sorted(list1, key = cmp_to_key(cmp_fun))
+				
+			
+		copy 
+			mylist = thislist.copy()
+			mylist = list(thislist)
+			
+		mylist.count('s')
+		mylist.index('d')
+		mylist.reverse()
+
+	Map = Dict
+		dict1 = {}
+		dict2[key] = value
+		dict2.get(key)
+		dict2.get(key,0)
+		if key in dict1:
+	
+	python set examples
+		visited = set ()
+		if pos in visited:
+		visited.add(node)
+		while visited:
+		
+	python queue examples
+		from collections import deque 
+		q = deque()
+		q.append(pos)
+		while q:
+		node = q.popleft()
+		'a' in q
+		
+	python enumerate: for i,ii in enumerate(grid)
+	
+	Stack python
+		Using list
+			myStack = []
+			myStack.append('a')
+			myStack.pop()
+		Using deqeue
+			from collections import deque
+			myStack = deque()
+			myStack.append('a')
+			myStack.pop()
+	
+	Lambda Function in python
+		lambda arguments: expression
+		double = lambda x: x * 2
+		print(double(5))
+		
+		use with filter()
+			my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+			new_list = list(filter(lambda x: (x%2 == 0) , my_list))
+			
+		use with map()
+			my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+			new_list = list(map(lambda x: x * 2 , my_list))
+			
+	Python list permutations
+		from itertools import permutations
+		for i in permutations(l, len(l)):
+		
+	char to int example: ord('d')- ord('a') => 3
+
+C++
+	Stack c++
+		stack<int> s;
+		s.push(5);
+		if (s.empty())
+		s.pop();
+		s.top()
+		s.size()
+		
+	sort with custom comparator
+		int myCompare(string X, string Y) {...}
+		sort(arr.begin(), arr.end(), myCompare);
 	
